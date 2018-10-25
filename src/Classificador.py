@@ -20,7 +20,7 @@ class Classificador(object):
         np.random.shuffle(indices)
         n_train = int(np.floor(x.shape[0] * train_ratio))
         indices_train = indices[:n_train]
-        indices_val = indices[-n_train:]
+        indices_val = indices[n_train:]
         x_train = x[indices_train, :]
         y_train = y[indices_train]
         x_val = x[indices_val, :]
