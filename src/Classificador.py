@@ -15,7 +15,8 @@ class Classificador(object):
 
     # < img src = "images/table_1.png" width = "80%" > # Ens recomanen fer una taula amb els valors obtinguts
 
-    def split_data(self, x, y, train_ratio):
+    def split_data(self, x, y, train_ratio=0.8):
+        print(train_ratio)
         indices = np.arange(x.shape[0])
         np.random.shuffle(indices)
         n_train = int(np.floor(x.shape[0] * train_ratio))

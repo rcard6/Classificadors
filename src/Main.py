@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # Bàsica
     tipus = 'Bàsica'
     # Logistic Regression
-    particions = [0.5, 0.7, 0.8]
+    particions = [0.7]  # Split de 0.7 implica 70% d'entrenament i 30% per validació
 
     # SVM - Tipus kernel:
     # Linear
@@ -56,7 +56,7 @@ if __name__ == '__main__':
         # l'entrenem
         logireg.fit(x_t, y_t)
 
-        print("Correct classification Logistic ", part, "%: ", logireg.score(x_v, y_v))
+        print("Correct classification Logistic ", part*100, "%: ", logireg.score(x_v, y_v))
         y_pred = logireg.predict(x_v)
         percent_correct_log = np.mean(y_v == y_pred).astype('float32')
         print("Correct classification Logistic ", part, "%: ", percent_correct_log, "\n")
