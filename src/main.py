@@ -1,9 +1,13 @@
 from LogisticRegressor import LogisticRegressor
 from Basic import Basic
+from KFold import KFold
 
 if __name__ == '__main__':
 
     classificador = LogisticRegressor("parkinsons_updrs.data", Basic())
+    classificador.process()
+
+    classificador = LogisticRegressor("parkinsons_updrs.data", KFold(2))
     classificador.process()
 
     # x, y = cl.load_dataset()
