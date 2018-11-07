@@ -1,7 +1,7 @@
 import numpy as np
 import sklearn as svm
 from sklearn.svm import SVC
-
+from sklearn.linear_model import LogisticRegression
 
 class Classificador(object):
 
@@ -27,7 +27,3 @@ class Classificador(object):
         x_val = x[indices_val, :]
         y_val = y[indices_val]
         return x_train, y_train, x_val, y_val
-
-    def train_svm(self, x, y, kernel='linear', C=0.01, gamma=0.001, probability=True):
-        svclin = SVC(C=C, kernel=kernel, gamma=gamma, probability=probability)
-        return svclin.fit(x.astype(float), y.astype(int))
