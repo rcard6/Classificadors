@@ -1,0 +1,44 @@
+@startuml
+class Classificador{
+ 
+abstract calculateError()
+}
+
+
+class LogisticRegressor{
+
+ calculateError()
+}
+
+class SVM{
+ calculateError()
+}
+
+
+class ApplicationMethod{
+ abstract process(Classificador c)
+}
+
+class BasicMethod{
+
+ process(Classificador c)
+}
+
+
+class KFoldMethod{
+
+ process(Classificador c)
+}
+
+class LeaveOneOutCrossValidationMethod{
+
+ process(Classificador c)
+}
+Classificador <|-- SVM
+Classificador <|-- LogisticRegressor
+ApplicationMethod <|-- BasicMethod
+ApplicationMethod <|-- KFoldMethod
+ApplicationMethod <|-- LeaveOneOutCrossValidationMethod
+
+Classificador o- ApplicationMethod
+@enduml
