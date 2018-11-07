@@ -1,17 +1,15 @@
-import src.RegressorLog
+import ApplicationMethod
 
 
-class Basic(object):
-    regLog = src.RegressorLog()
+class Basic(ApplicationMethod):
 
-    # Logistic Regression
-    particions = [0.7]  # Split de 0.7 implica 70% d'entrenament i 30% per validació
+    def __init__(self):
+        pass
 
 
-    # SVM - Tipus kernel:
-    # Linear
-    # kernel = 'linear'
-    # Polinomial
-    # kernel = 'poly' - Descomentar quan estigui fet el switch
-    # Gaussia
-    # kernel = 'rbf' - Descomentar quan estigui fet el switch
+    def process(self,classificador):
+        x_t,y_t,x_v,y_v = classificador.split_data(0.7)
+        classificador.train(x_t,x_v)
+        y_pred=classificador.predict(x_v)
+        print classificador.score(x_v, y_v)
+        print classificador.calculateError(y_v, y_pred)
