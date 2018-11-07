@@ -2,14 +2,13 @@ import numpy as np
 
 
 class Classificador(object):
-
-    def __init__(self, path, ApplicationMethod):
+    def __init__(self, path, applicationmethod):
         data = np.genfromtxt(path, delimiter=',', skip_header=1)
         x = data
         # Triatge output (parkinsons = status(-7), parkinsons_updrs = motor_UPDRS(4) o total_UPDRS(5))
         self.y = data[:, 4].astype('int32')
         self.x = np.delete(x, 4, axis=1)
-        self.method = ApplicationMethod
+        self.method = applicationmethod
 
     def split_data(self, train_ratio=0.8):
         print(train_ratio)

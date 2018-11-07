@@ -1,9 +1,9 @@
-import LogisticRegressor
-import Basic
+from LogisticRegressor import LogisticRegressor
+from Basic import Basic
 
 if __name__ == '__main__':
 
-    classificador = LogisticRegressor('parkinsons_updrs.data', Basic())
+    classificador = LogisticRegressor("parkinsons_updrs.data", Basic())
     classificador.process()
 
     # x, y = cl.load_dataset()
