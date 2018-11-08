@@ -9,7 +9,10 @@ class Classificador(object):
         self.y = data[:, 4].astype('int32')
         self.x = np.delete(x, 4, axis=1)
         self.method = applicationmethod
-
+    def getX(self):
+        return self.x
+    def getY(self):
+        return self.y
     def split_data(self, train_ratio=0.8):
         print(train_ratio)
         indices = np.arange(self.x.shape[0])
