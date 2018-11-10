@@ -1,5 +1,5 @@
 from sklearn.svm import SVC
-import Classificador as Classificador
+import src.Classificador as Classificador
 
 class SVM(Classificador):
 

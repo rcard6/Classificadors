@@ -9,12 +9,14 @@ class Classificador(object):
         self.y = data[:, 4].astype('int32')
         self.x = np.delete(x, 4, axis=1)
         self.method = applicationmethod
+
     def getX(self):
         return self.x
+
     def getY(self):
         return self.y
+
     def split_data(self, train_ratio=0.8):
-        print(train_ratio)
         indices = np.arange(self.x.shape[0])
         np.random.shuffle(indices)
         n_train = int(np.floor(self.x.shape[0] * train_ratio))
@@ -26,7 +28,7 @@ class Classificador(object):
         y_val = self.y[indices_val]
         return x_train, y_train, x_val, y_val
 
-    def train(self,x_t,y_t):
+    def train(self, x_t, y_t):
         pass
 
     def calculateError(self):

@@ -1,4 +1,4 @@
-from ApplicationMethod import ApplicationMethod
+from src.ApplicationMethod import ApplicationMethod
 import numpy as np
 
 class OneLeave(ApplicationMethod):
@@ -16,5 +16,5 @@ class OneLeave(ApplicationMethod):
             y_pred = classificador.predict(x_v)
             np.append(score, classificador.score(x_v, y_v))
             np.append(error, classificador.calculateError(y_v, y_pred))
-        print np.mean(error)
-        print np.mean(score)
+        print(np.mean(error))
+        print(np.mean(score))
