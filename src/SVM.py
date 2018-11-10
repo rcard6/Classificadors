@@ -1,5 +1,5 @@
 from sklearn.svm import SVC
-from Classificador import Classificador
+from src.Classificador import Classificador
 
 
 class SVM(Classificador):
@@ -10,7 +10,6 @@ class SVM(Classificador):
         self.C = c
         self.gamma = gamma
         self.probability = probability
-
 
     def train(self):
         svclin = SVC(self.C, self.kernel, self.gamma, self.probability)

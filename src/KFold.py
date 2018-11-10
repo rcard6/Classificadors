@@ -13,7 +13,7 @@ class KFold(ApplicationMethod):
             classificador.train(x_t, y_t)
             y_pred = classificador.predict(x_v)
 
-            print("Correct classification Logistic(K-Fold) ", part * 100, "%: ",  classificador.score(x_v, y_v))
+            print("Correct classification Logistic(K-Fold) ", part * 100, "%: ",  classificador.score(x_v, y_v)*100)
             print("Correct classification Logistic(K-Fold) ", part * 100, "%: ",
-                  classificador.calculateError(y_v, y_pred))
+                  classificador.calculateError(y_v, y_pred)*100)
 

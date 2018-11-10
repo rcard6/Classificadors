@@ -16,8 +16,8 @@ class LogisticRegressor(Classificador):
         return self.classificador.predict(self.x_val)
 
     def score(self):
-        return self.classificador.score(self.x_v, self.y_v)
+        return self.classificador.score(self.x_val, self.y_val)
 
     def calculateError(self):
-        return np.mean(self.y_v == self.y_pred).astype('float32')
+        return np.mean(self.y_val == self.predict()).astype('float32')  # Es correcte posar self.predict()?, si no no troba variable
 
