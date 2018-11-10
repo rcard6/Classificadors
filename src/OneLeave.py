@@ -6,7 +6,7 @@ class OneLeave(ApplicationMethod):
         ApplicationMethod.__init__(self)
 
     def process(self, classificador):
-        n = classificador.getX().shape[0]
+        n = classificador.getx().shape[0]
         n_little = n-1
         score = np.array()
         error = np.array()

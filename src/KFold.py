@@ -7,7 +7,7 @@ class KFold(ApplicationMethod):
     def process(self, classificador):
         part = 0.2
         for i in range(self.k):
-            n = classificador.getX().shape[0]
+            n = classificador.getx().shape[0]
             n_k = n/self.k
             x_t, y_t, x_v, y_v = classificador.split_data(part)
             classificador.train(x_t, y_t)

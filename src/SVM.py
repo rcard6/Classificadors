@@ -1,11 +1,16 @@
 from sklearn.svm import SVC
-import src.Classificador as Classificador
+from Classificador import Classificador
+
 
 class SVM(Classificador):
 
-    def __init__(self, path):
-        Classificador.__init__(self, path)
+    def __init__(self, path, applicationmethod, kernel='linear', c=0.01, gamma=0.001, probability=True):
+        self.kernel = kernel
+        self.C = c
+        self.gamma = gamma
+        self.probability = probability
+        Classificador.__init__(self, path, applicationmethod)
 
-    def train(self, kernel='linear', C=0.01, gamma=0.001, probability=True):
-        svclin = SVC(C=C, kernel=kernel, gamma=gamma, probability=probability)
+    def train(self):
+        svclin = SVC(self.C, self.kernel, self.gamma, self.probability)
         return svclin.fit(self.x.astype(float), self.y.astype(int))
