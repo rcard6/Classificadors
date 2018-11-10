@@ -13,6 +13,7 @@ class Classificador(object):
         self.x_val = 0
         self.y_train = 0
         self.y_val = 0
+        self.y_pred = 0
 
         self.method = applicationmethod
 
@@ -37,9 +38,12 @@ class Classificador(object):
         pass
 
     def calculateError(self):
-        pass
+        return 0
 
     def score(self):
+        return 0
+
+    def predict(self):
         pass
 
     def process(self):

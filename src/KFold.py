@@ -4,16 +4,21 @@ class KFold(ApplicationMethod):
     def __init__(self, k):
         ApplicationMethod.__init__(self)
         self.k = k
+
     def process(self, classificador):
         part = 0.2
+        score = 0
+        error = 0
         for i in range(self.k):
             n = classificador.getx().shape[0]
             n_k = n/self.k
-            x_t, y_t, x_v, y_v = classificador.split_data(part)
-            classificador.train(x_t, y_t)
-            y_pred = classificador.predict(x_v)
 
-            print("Correct classification Logistic(K-Fold) ", part * 100, "%: ",  classificador.score(x_v, y_v)*100)
-            print("Correct classification Logistic(K-Fold) ", part * 100, "%: ",
-                  classificador.calculateError(y_v, y_pred)*100)
+            classificador.split_data(part)
+            classificador.train()
+            classificador.predict()
+            # Cal acumular l'error en una variable i dividir entre k
+            score += classificador.score()
+            error += classificador.calculateError()
+        print("Correct classification Logistic(K-fold) ", part * 100, "%: ", (score / self.k)*100)
+        print("Correct classification Logistic(K-fold) ", part * 100, "%: ", (error / self.k)*100)
 
