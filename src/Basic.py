@@ -13,6 +13,6 @@ class Basic(ApplicationMethod):
         classificador.train()
         classificador.predict()
 
-        if classificador.score() != 0:
-            print("Correct classification Logistic(Basic) ", part * 100, "%: ", classificador.score()*100)
+        if classificador.accuracy_score() != 0:
+            print("Correct classification Logistic(Basic) ", part * 100, "%: ", classificador.accuracy_score() * 100)
             print("Correct classification Logistic(Basic) ", part * 100, "%: ", classificador.calculate_error() * 100)

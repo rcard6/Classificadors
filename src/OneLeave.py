@@ -15,7 +15,7 @@ class OneLeave(ApplicationMethod):
             self.split_data(classificador, i)
             classificador.train()
             classificador.predict()
-            np.append(score, classificador.score())
+            np.append(score, classificador.accuracy_score())
             np.append(error, classificador.calculate_error())
         print(np.mean(error))
         print(np.mean(score))

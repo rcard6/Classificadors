@@ -14,9 +14,9 @@ class KFold(ApplicationMethod):
             classificador.train()
             classificador.predict()
             # Cal acumular l'error en una variable i dividir entre k, es podria fer amb np.array i fer el mean
-            score += classificador.score()
+            score += classificador.accuracy_score()
             error += classificador.calculate_error()
-        if classificador.score() != 0:
+        if classificador.accuracy_score() != 0:
             print("Correct classification Logistic(K-fold): ", (score / self.k)*100)
             print("Correct classification Logistic(K-fold): ", (error / self.k)*100)
 

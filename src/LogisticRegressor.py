@@ -15,9 +15,8 @@ class LogisticRegressor(Classificador):
     def predict(self):
         self.y_pred = self.classificador.predict(self.x_val)
 
-    def score(self):
+    def accuracy_score(self):
         return self.classificador.score(self.x_val, self.y_val)
 
     def calculate_error(self):
         return np.mean(self.y_val == self.y_pred).astype('float32')
-

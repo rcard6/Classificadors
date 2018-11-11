@@ -52,7 +52,7 @@ class Classificador(object):
     def calculate_error(self):
         return 0
 
-    def score(self):
+    def accuracy_score(self):
         return 0
 
     def predict(self):
@@ -60,3 +60,6 @@ class Classificador(object):
 
     def process(self):
         self.method.process(self)
+
+    def recall_score(self):
+        pass

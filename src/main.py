@@ -28,14 +28,14 @@ if __name__ == '__main__':
     # classificador.process()
     # Classificador: SVM
     # Tipus Kernel: linear
-    classificador = SVM(DATA, KFold(4), 'linear')
+    classificador = SVM(DATA, KFold(2), 'linear')
     classificador.process()
-    # Tipus Kernel: Polinomial
-    classificador = SVM(DATA, KFold(4), 'poly')
-    classificador.process()
-    # Tipus Kernel: Gaussià
-    classificador = SVM(DATA, KFold(4), 'rbf')
-    classificador.process()
+    # # Tipus Kernel: Polinomial
+    # classificador = SVM(DATA, KFold(4), 'poly')
+    # classificador.process()
+    # # Tipus Kernel: Gaussià
+    # classificador = SVM(DATA, KFold(4), 'rbf')
+    # classificador.process()
     # ----------------------------------------------------------------------
     # Manera de classificar: 'Leave-One-Out-Cross-Validation'
     # Classificador: Regressor logistic
