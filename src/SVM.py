@@ -1,5 +1,6 @@
 from sklearn.svm import SVC
 from Classificador import Classificador
+from sklearn.metrics import recall_score
 
 
 class SVM(Classificador):
@@ -15,3 +16,6 @@ class SVM(Classificador):
 
     def predict(self):
         self.y_pred = self.model.predict_proba(self.x_val)
+
+    def recall_score(self):
+        return recall_score(self.y_val, self.y_pred, average='binary')
