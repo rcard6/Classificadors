@@ -1,4 +1,4 @@
-from src.ApplicationMethod import ApplicationMethod
+from ApplicationMethod import ApplicationMethod
 import numpy as np
 
 

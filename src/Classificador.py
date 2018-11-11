@@ -7,6 +7,7 @@ class Classificador(object):
         data = np.genfromtxt(path, delimiter=',', skip_header=1)
         x = data
         # Triatge output (parkinsons = status(-7), parkinsons_updrs = motor_UPDRS(4) o total_UPDRS(5))
+        self.classificadorName = ""
         self.y = data[:, 4].astype('int32')
         self.x = np.delete(x, 4, axis=1)
 

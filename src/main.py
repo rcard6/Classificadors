@@ -1,8 +1,8 @@
-from src.LogisticRegressor import LogisticRegressor
-from src.Basic import Basic
-from src.KFold import KFold
-from src.SVM import SVM
-from src.OneLeave import OneLeave
+from LogisticRegressor import LogisticRegressor
+from Basic import Basic
+from KFold import KFold
+from SVM import SVM
+from OneLeave import OneLeave
 
 if __name__ == '__main__':
 
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # # #   Tipus Kernel: Polinomial
     # classificador = SVM(DATA, Basic(), 'poly')
     # classificador.process()
-    # # #   Tipus Kernel: Gaussià
+    # # #   Tipus Kernel: Gaussia
     # classificador = SVM(DATA, Basic(), 'rbf')
     # classificador.process()
     # ----------------------------------------------------------------------
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     # # Tipus Kernel: Polinomial
     # classificador = SVM(DATA, KFold(4), 'poly')
     # classificador.process()
-    # # Tipus Kernel: Gaussià
+    # # Tipus Kernel: Gaussia
     # classificador = SVM(DATA, KFold(4), 'rbf')
     # classificador.process()
     # ----------------------------------------------------------------------
@@ -44,5 +44,5 @@ if __name__ == '__main__':
     # Classificador: SVM
     # Tipus Kernel: linear
     # Tipus Kernel: Polinomial
-    # Tipus Kernel: Gaussià
+    # Tipus Kernel: Gaussia
 

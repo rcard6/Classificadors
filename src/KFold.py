@@ -1,4 +1,4 @@
-from src.ApplicationMethod import ApplicationMethod
+from ApplicationMethod import ApplicationMethod
 
 
 class KFold(ApplicationMethod):
@@ -17,6 +17,6 @@ class KFold(ApplicationMethod):
             score += classificador.score()
             error += classificador.calculate_error()
         if classificador.score() != 0:
-            print("Correct classification Logistic(K-fold): ", (score / self.k)*100)
-            print("Correct classification Logistic(K-fold): ", (error / self.k)*100)
+            print("Correct classification (K-fold): ", (score / self.k)*100)
+            print("Correct classification (K-fold): ", (error / self.k)*100)
 
