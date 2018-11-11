@@ -9,12 +9,12 @@ if __name__ == '__main__':
     DATA = "parkinsons_updrs.data"
     # #   Manera de classificar: 'Basic'
     # #   Classificador: Regressor logistic
-    # classificador = LogisticRegressor(DATA, Basic())
-    # classificador.process()
+    classificador = LogisticRegressor(DATA, Basic())
+    classificador.process()
     # #   Classificador: SVM
     # #   Tipus Kernel: linear
-    # classificador = SVM(DATA, Basic(), 'linear')
-    # classificador.process()
+    classificador = SVM(DATA, Basic(), 'linear')
+    classificador.process()
     # # #   Tipus Kernel: Polinomial
     # classificador = SVM(DATA, Basic(), 'poly')
     # classificador.process()
@@ -28,8 +28,8 @@ if __name__ == '__main__':
     # classificador.process()
     # Classificador: SVM
     # Tipus Kernel: linear
-    classificador = SVM(DATA, KFold(2), 'linear')
-    classificador.process()
+    # classificador = SVM(DATA, KFold(2), 'linear')
+    # classificador.process()
     # # Tipus Kernel: Polinomial
     # classificador = SVM(DATA, KFold(4), 'poly')
     # classificador.process()

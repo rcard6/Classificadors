@@ -12,7 +12,6 @@ class Basic(ApplicationMethod):
         classificador.split_data(part)
         classificador.train()
         classificador.predict()
-
-        if classificador.accuracy_score() != 0:
-            print("Correct classification Logistic(Basic) ", part * 100, "%: ", classificador.accuracy_score() * 100)
-            print("Correct classification Logistic(Basic) ", part * 100, "%: ", classificador.calculate_error() * 100)
+        print("Correct classification Logistic(Basic) ", part * 100, "%: ", classificador.score() * 100)
+        print("Correct classification Logistic(Basic) ", part * 100, "%: ", classificador.calculate_error() * 100)
+        print("Recall: ", classificador.recall_score())

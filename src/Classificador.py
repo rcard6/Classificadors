@@ -1,4 +1,5 @@
 import numpy as np
+from sklearn.metrics import recall_score
 
 
 class Classificador(object):
@@ -49,11 +50,11 @@ class Classificador(object):
     def train(self):
         pass
 
-    def calculate_error(self):
-        return 0
+    def score(self):
+        return self.classificador.score(self.x_val, self.y_val)
 
-    def accuracy_score(self):
-        return 0
+    def calculate_error(self):
+        return np.mean(self.y_val == self.y_pred).astype('float32')
 
     def predict(self):
         pass
@@ -62,4 +63,4 @@ class Classificador(object):
         self.method.process(self)
 
     def recall_score(self):
-        pass
+        return recall_score(self.y_val, self.y_pred, average='micro')
