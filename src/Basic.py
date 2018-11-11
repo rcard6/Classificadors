@@ -15,4 +15,4 @@ class Basic(ApplicationMethod):
 
         if classificador.score() != 0:
             print("Correct classification Logistic(Basic) ", part * 100, "%: ", classificador.score()*100)
-            print("Correct classification Logistic(Basic) ", part * 100, "%: ", classificador.calculateError()*100)
+            print("Correct classification Logistic(Basic) ", part * 100, "%: ", classificador.calculate_error() * 100)

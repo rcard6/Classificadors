@@ -15,6 +15,6 @@ class OneLeave(ApplicationMethod):
             classificador.train(x_t, y_t)
             y_pred = classificador.predict(x_v)
             np.append(score, classificador.score(x_v, y_v))
-            np.append(error, classificador.calculateError(y_v, y_pred))
+            np.append(error, classificador.calculate_error(y_v, y_pred))
         print(np.mean(error))
         print(np.mean(score))

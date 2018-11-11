@@ -37,7 +37,7 @@ class Classificador(object):
     def train(self):
         pass
 
-    def calculateError(self):
+    def calculate_error(self):
         return 0
 
     def score(self):
