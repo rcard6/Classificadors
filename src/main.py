@@ -2,6 +2,7 @@ from src.LogisticRegressor import LogisticRegressor
 from src.Basic import Basic
 from src.KFold import KFold
 from src.SVM import SVM
+from src.OneLeave import OneLeave
 
 if __name__ == '__main__':
 
@@ -23,8 +24,8 @@ if __name__ == '__main__':
     # ----------------------------------------------------------------------
     #   Manera de classificar: 'K-fold validation'
     #   Classificador: Regressor logistic
-    classificador = LogisticRegressor(DATA, KFold(4))
-    classificador.process()
+    # classificador = LogisticRegressor(DATA, KFold(2))
+    # classificador.process()
 
     # Classificador: SVM
     # Tipus Kernel: linear
@@ -33,6 +34,7 @@ if __name__ == '__main__':
     # ----------------------------------------------------------------------
     # Manera de classificar: 'Leave-One-Out-Cross-Validation'
     # Classificador: Regressor logistic
+    classifcador = LogisticRegressor(DATA, OneLeave())
     # Classificador: SVM
     # Tipus Kernel: linear
     # Tipus Kernel: Polinomial
