@@ -8,16 +8,26 @@ class OneLeave(ApplicationMethod):
 
     def process(self, classificador):
         n = classificador.getx().shape[0]
-        x = classificador.getx()
         n_little = n-1
-        score = np.array()
-        error = np.array()
+        score = np.zeros(n)
+        error = np.array(n)
         for i in range(n):
-            x_t, y_t, x_v, y_v = classificador.split_data(n_little/n)
-
-            classificador.train(x_t, y_t)
-            classificador.predict(x_v)
-            np.append(score, classificador.score(x_v, y_v))
-            np.append(error, classificador.calculate_error(y_v, self.y_pred))
+            self.split_data(classificador, i)
+            classificador.train()
+            classificador.predict()
+            np.append(score, classificador.score())
+            np.append(error, classificador.calculate_error())
         print(np.mean(error))
         print(np.mean(score))
+
+    def split_data(self, classificador, i):
+        x = classificador.getx()
+        y = classificador.gety()
+        # Assignem X
+        classificador.setx_val(x[i])
+        x_t = np.delete(x, i, axis=1)
+        classificador.setx_train(x_t)
+        # Assignem Y
+        classificador.sety_val(y[i])
+        y_t = np.delete(y, i, axis=1)
+        classificador.sety_train(y_t)

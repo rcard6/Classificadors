@@ -9,8 +9,8 @@ if __name__ == '__main__':
     DATA = "parkinsons_updrs.data"
     # #   Manera de classificar: 'Basic'
     # #   Classificador: Regressor logistic
-    # classificador = LogisticRegressor(DATA, Basic())
-    # classificador.process()
+    classificador = LogisticRegressor(DATA, Basic())
+    classificador.process()
     # #   Classificador: SVM
     # #   Tipus Kernel: linear
     # classificador = SVM(DATA, Basic(), 'linear')
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     # ----------------------------------------------------------------------
     #   Manera de classificar: 'K-fold validation'
     #   Classificador: Regressor logistic
-    # classificador = LogisticRegressor(DATA, KFold(2))
+    # classificador = LogisticRegressor(DATA, KFold(4))
     # classificador.process()
 
     # Classificador: SVM
@@ -34,7 +34,8 @@ if __name__ == '__main__':
     # ----------------------------------------------------------------------
     # Manera de classificar: 'Leave-One-Out-Cross-Validation'
     # Classificador: Regressor logistic
-    classifcador = LogisticRegressor(DATA, OneLeave())
+    # classifcador = LogisticRegressor(DATA, OneLeave())
+    # classifcador.process()
     # Classificador: SVM
     # Tipus Kernel: linear
     # Tipus Kernel: Polinomial

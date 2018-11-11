@@ -23,6 +23,18 @@ class Classificador(object):
     def gety(self):
         return self.y
 
+    def setx_train(self, x_train):
+        self.x_train = x_train
+
+    def setx_val(self, x_val):
+        self.x_val = x_val
+
+    def sety_train(self, y_train):
+        self.y_train = y_train
+
+    def sety_val(self, y_val):
+        self.y_val = y_val
+
     def split_data(self, train_ratio=0.8):
         indices = np.arange(self.x.shape[0])
         np.random.shuffle(indices)
