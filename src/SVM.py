@@ -10,7 +10,12 @@ class SVM(Classificador):
         self.C = c
         self.gamma = gamma
         self.probability = probability
+        self.model = 0
 
     def train(self):
         svclin = SVC(self.C, self.kernel, self.gamma, self.probability)
-        return svclin.fit(self.x.astype(float), self.y.astype(int))
+        self.model = svclin.fit(self.x.astype(float), self.y.astype(int))
+
+    def predict(self):
+        self.model.predict_proba(self)
+

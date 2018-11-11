@@ -29,5 +29,5 @@ class OneLeave(ApplicationMethod):
         classificador.setx_train(x_t)
         # Assignem Y
         classificador.sety_val(y[i])
-        y_t = np.delete(y, i, axis=1)
-        classificador.sety_train(y_t)
+        # y_t = np.delete(y, i, axis=1)
+        classificador.sety_train(y)
