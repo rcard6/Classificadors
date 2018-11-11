@@ -1,23 +1,30 @@
 import numpy as np
-from sklearn.metrics import recall_score
+from sklearn.metrics import recall_score,f1_score, precision_recall_curve, average_precision_score
+from matplotlib import pyplot as plt
 
 
 class Classificador(object):
     def __init__(self, path, applicationmethod):
         data = np.genfromtxt(path, delimiter=',', skip_header=1)
-        x = data
+        self.x = data
         # Triatge output (parkinsons = status(-7), parkinsons_updrs = motor_UPDRS(4) o total_UPDRS(5))
         self.classificadorName = ""
-        self.y = data[:, 4].astype('int32')
-        self.x = np.delete(x, 4, axis=1)
+        self.y = data[:, -7].astype('int32')
+
+
+        # Removing names column
+        self.x = np.delete(self.x, 0, axis=1)
+        self.x = np.delete(self.x, 17, axis=1)
 
         self.x_train = 0
         self.x_val = 0
         self.y_train = 0
         self.y_val = 0
         self.y_pred = 0
-
+        self.probabilities = 0
         self.method = applicationmethod
+
+
 
     def getx(self):
         return self.x
@@ -58,10 +65,31 @@ class Classificador(object):
         return np.mean(self.y_val == self.y_pred).astype('float32')
 
     def predict(self):
-        pass
+        self.y_pred = self.classificador.predict(self.x_val)
+
+    def predict_proba(self):
+        self.probabilities = self.classificador.predict_proba(self.x_val)
+
 
     def process(self):
         self.method.process(self)
 
     def recall_score(self):
-        return recall_score(self.y_val, self.y_pred, average='micro')
+        # Compute Precision-Recall and plot curve
+        self.predict_proba()
+
+        precision = {}
+        recall = {}
+        average_precision = {}
+        plt.figure()
+        for i in range(2):
+            precision[i], recall[i], _ = precision_recall_curve(self.y_val == i, self.probabilities[:,i])
+            average_precision[i] = average_precision_score(self.y_val == i, self.probabilities[:,i])
+            plt.plot(recall[i], precision[i],
+            label='Precision-recall curve of class {0} (area = {1:0.2f})'
+            ''.format(i, average_precision[i]))
+            plt.xlabel('Recall')
+            plt.ylabel('Precision')
+            plt.legend(loc="upper right")
+            plt.waitforbuttonpress()
+            plt.clf()

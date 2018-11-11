@@ -11,6 +11,7 @@ class Basic(ApplicationMethod):
         classificador.split_data(part)
         classificador.train()
         classificador.predict()
-        print "Correct classification (Basic) ", part * 100, "%: ", classificador.score() * 100
+        print "Score (Basic) ", part * 100, "%: ", classificador.score() * 100
         print "Correct classification (Basic) ", part * 100, "%: ", classificador.calculate_error() * 100
-        print "Recall: ", classificador.recall_score()
+        print "Recall: "
+        classificador.recall_score()

@@ -13,5 +13,4 @@ class LogisticRegressor(Classificador):
     def train(self):
         self.classificador.fit(self.x_train, self.y_train)
 
-    def predict(self):
-        self.y_pred = self.classificador.predict(self.x_val)
+

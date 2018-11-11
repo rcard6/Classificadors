@@ -6,7 +6,14 @@ from OneLeave import OneLeave
 
 if __name__ == '__main__':
 
-    DATA = "parkinsons_updrs.data"
+    DATA = "../dataSet/parkinsons.data"
+    # methods = [Basic(), KFold(5), OneLeave()];
+    # for i in methods:
+    #     rl = LogisticRegressor(DATA, i)
+    #     svm = SVM(DATA, i)
+    #     rl.process()
+    #     svm.process()
+
     # #   Manera de classificar: 'Basic'
     # #   Classificador: Regressor logistic
     classificador = LogisticRegressor(DATA, Basic())
@@ -16,11 +23,11 @@ if __name__ == '__main__':
     classificador = SVM(DATA, Basic(), 'linear')
     classificador.process()
     # # #   Tipus Kernel: Polinomial
-    # classificador = SVM(DATA, Basic(), 'poly')
-    # classificador.process()
+    classificador = SVM(DATA, Basic(), 'poly')
+    classificador.process()
     # # #   Tipus Kernel: Gaussia
-    # classificador = SVM(DATA, Basic(), 'rbf')
-    # classificador.process()
+    classificador = SVM(DATA, Basic(), 'rbf')
+    classificador.process()
     # ----------------------------------------------------------------------
     #   Manera de classificar: 'K-fold validation'
     #   Classificador: Regressor logistic
@@ -28,19 +35,19 @@ if __name__ == '__main__':
     # classificador.process()
     # Classificador: SVM
     # Tipus Kernel: linear
-    # classificador = SVM(DATA, KFold(2), 'linear')
-    # classificador.process()
+    classificador = SVM(DATA, KFold(2), 'linear')
+    classificador.process()
     # # Tipus Kernel: Polinomial
-    # classificador = SVM(DATA, KFold(4), 'poly')
-    # classificador.process()
+    classificador = SVM(DATA, KFold(4), 'poly')
+    classificador.process()
     # # Tipus Kernel: Gaussia
-    # classificador = SVM(DATA, KFold(4), 'rbf')
-    # classificador.process()
+    classificador = SVM(DATA, KFold(4), 'rbf')
+    classificador.process()
     # ----------------------------------------------------------------------
     # Manera de classificar: 'Leave-One-Out-Cross-Validation'
     # Classificador: Regressor logistic
-    # classifcador = LogisticRegressor(DATA, OneLeave())
-    # classifcador.process()
+    classifcador = LogisticRegressor(DATA, OneLeave())
+    classifcador.process()
     # Classificador: SVM
     # Tipus Kernel: linear
     # Tipus Kernel: Polinomial

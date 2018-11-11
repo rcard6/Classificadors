@@ -16,7 +16,7 @@ class KFold(ApplicationMethod):
             # Cal acumular l'error en una variable i dividir entre k, es podria fer amb np.array i fer el mean
             score += classificador.score()
             error += classificador.calculate_error()
-        if classificador.score() != 0:
-            print("Correct classification (K-fold): ", (score / self.k)*100)
-            print("Correct classification (K-fold): ", (error / self.k)*100)
-
+        print("Correct classification (K-fold): ", (score / self.k)*100)
+        print("Correct classification (K-fold): ", (error / self.k)*100)
+        print "Recall:"
+        classificador.recall_score()
